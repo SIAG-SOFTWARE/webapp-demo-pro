@@ -92,6 +92,10 @@ webapp-demo-pro/
 │   ├── package.json
 │   └── tailwind.config.js
 │
+├── docs/
+│   ├── login.png
+│   └── dashboard.png
+│ 
 └── docker-compose.yml
 └──README.md
 ```
