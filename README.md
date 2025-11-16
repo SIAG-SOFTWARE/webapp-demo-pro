@@ -1,63 +1,54 @@
-🟩 README — SIAG Software Webapp Demo PRO
-SIAG Webapp Demo PRO
+SIAG Software – Webapp Demo PRO
 
-Full-stack demo for modern SaaS architecture
-FastAPI + JWT + React + Tailwind + Modular Architecture
+Full-Stack Authentication · Role System · Dashboard API · Modern React UI
 
-🧠 Overview
-
-Webapp Demo PRO showcases how SIAG Software builds real production-grade web applications:
-
-Clean full-stack architecture
-
-Real authentication with JWT
-
-User roles (admin / user)
-
-Dashboard with dynamic stats
-
-Professional UI using Tailwind
-
-API & frontend decoupled
-
-Easy Docker support
-
-This is the intermediate version used to demonstrate SIAG Software’s full-stack capabilities to clients.
+This repository showcases a professional-grade demo of how SIAG Software builds full-stack web applications for clients.
+It includes a FastAPI backend, a clean React interface, authentication flow, roles, protected dashboard, reusable components, and Docker support.
 
 🚀 Features
-🔐 Backend (FastAPI)
+Backend (FastAPI)
 
-JWT Authentication
+User registration & login
 
-User registration + login
+Secure password hashing (bcrypt)
 
-Roles: admin, user
+JWT authentication
 
-Modular router structure
+Role-based access (admin / user)
 
-SQLAlchemy models
+Protected routes (/dashboard/stats)
 
-Secure password hashing
+SQLite database + SQLAlchemy ORM
 
-CORS configured
+Modular routes, dependencies & utils
 
-.env driven configuration
+Full CORS support
 
-🎨 Frontend (React + Tailwind)
+.env configuration inside backend/
 
-Clean, modern UI
+Frontend (React + Vite + Tailwind)
 
-Login form
+Login form (component-based)
 
-Stats dashboard
+Token persistence (per session)
 
-Reusable components
+Dashboard UI with business KPIs
 
-Responsive layout
+Reusable components (ChartBox, etc.)
 
-Simple API wrapper
+Clean and modern design
 
-🧩 Architecture
+API layer auto-configurable
+
+Docker Support
+
+One-command local dev environment
+
+Hot reload for backend and frontend
+
+Proper container separation
+
+🧱 Project Structure
 ```
 webapp-demo-pro/
 │
@@ -77,7 +68,7 @@ webapp-demo-pro/
 │   │   ├── jwt_handler.py
 │   │   └── security.py
 │   ├── requirements.txt
-│   └── .env.example
+│   └── .env.example       ← ✔️ Correcto: se queda aquí
 │
 ├── frontend/
 │   ├── src/
@@ -95,95 +86,73 @@ webapp-demo-pro/
 ├── docs/
 │   ├── login.png
 │   └── dashboard.png
-│ 
-└── docker-compose.yml
-└──README.md
+│
+├── docker-compose.yml
+└── README.md
 ```
 
-⚙️ Backend Setup
-1. Install dependencies
-cd backend
-pip install -r requirements.txt
+⚙️ Setup — Backend
+Install requirements
+pip install -r backend/requirements.txt
 
-2. Create .env
+Create .env
 
-Copy .env.example → .env
+Copy:
 
-DATABASE_URL=sqlite:///./siag_web_demo_pro.db
-SECRET_KEY=changeme
-JWT_ALGORITHM=HS256
-ACCESS_TOKEN_EXPIRE_MINUTES=120
-API_NAME="SIAG Webapp Demo PRO"
+backend/.env.example → backend/.env
 
-3. Run backend
+
+Fill required keys (DB, secrets, token expiry, etc).
+
+Run
 uvicorn backend.main:app --reload
 
 
-The backend runs at:
-👉 http://localhost:8000
+Backend URL:
+http://localhost:8000
 
-Open API docs:
-👉 http://localhost:8000/docs
-
-🎨 Frontend Setup
-1. Install dependencies
+🎨 Setup — Frontend
 cd frontend
 npm install
-
-2. Run dev server
 npm run dev
 
 
-Frontend runs at:
-👉 http://localhost:5173
+Frontend URL:
+http://localhost:5173
 
-🧪 Test Flow
-Register
+🐳 Run with Docker
+docker-compose up --build
 
-POST → /auth/register
-Body:
+🔐 API Routes
+POST /auth/register
 
-{ "username": "admin", "password": "1234" }
+Register user.
 
+POST /auth/login
+
+Returns JWT token.
+
+GET /dashboard/stats
+
+Protected.
+
+Requires:
+
+Authorization: Bearer <token>
+
+🖼 Screenshots
 Login
 
-POST → /auth/login
+docs/login.png
 
-Response:
+Dashboard
 
-{ "access_token": "xxx", "token_type": "bearer" }
+docs/dashboard.png
 
-Access Dashboard
+🧩 About SIAG Software
 
-GET → /dashboard/stats
-Headers:
+SIAG Software builds AI tools, automation pipelines, full-stack systems, scrapers, and production-ready solutions.
 
-Authorization: Bearer YOUR_TOKEN
-
-📊 Dashboard Preview
-
-🧩 Docker (Optional)
-
-A working docker-compose.yml is already included.
-
-Run with:
-
-docker compose up --build
-
-📦 License
-
-MIT License © 2025 — SIAG Software
-
-🌐 About SIAG Software
-
-SIAG Software builds pragmatic, scalable tools for modern businesses:
-
-AI chatbots
-
-Workflow automation
-
-Custom scrapers
-
-Full-stack webapps
+GitHub: https://github.com/SIAG-SOFTWARE
 
 Contact: siag.software@protonmail.com
