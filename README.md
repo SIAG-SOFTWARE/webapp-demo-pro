@@ -93,6 +93,7 @@ webapp-demo-pro/
 │   └── tailwind.config.js
 │
 └── docker-compose.yml
+└──README.md
 ```
 
 ⚙️ Backend Setup
@@ -156,20 +157,6 @@ Headers:
 Authorization: Bearer YOUR_TOKEN
 
 📊 Dashboard Preview
-
-You can optionally add screenshots like:
-```
-docs/
- ├── login.png
- ├── dashboard.png
-```
-
-Then:
-
-![Dashboard](docs/dashboard.png)
-
-
-(Agregá cuando quieras.)
 
 🧩 Docker (Optional)
 
